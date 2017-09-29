@@ -8,9 +8,16 @@ clear ; close all; clc
 
 % get training & test data
 fprintf('Loading data ...\n');
-data = load('data/data_month.txt');
-data_train = data(1:end-12,:);
-data_test = sortrows(data(end-11:end,:));
+data = load('/Users/tstudnicki/PycharmProjects/gas-consumption-forecast/data/heating_est_data_1feature.csv');
+%data = load('/Users/tstudnicki/PycharmProjects/gas-consumption-forecast/data/data_month.txt');
+fprintf('data_train...\n');
+data_train = data(1:end-48,:);
+%data_train = data(1:end-12,:);
+disp(data_train); 
+data_test = sortrows(data(end-47:end,:));
+%data_test = sortrows(data(end-11:end,:));
+fprintf('data_test...\n');
+disp(data_test); 
 
 fprintf('Loaded %d samples:\n',length(data));
 X_train = data_train(:,1);
